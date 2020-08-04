@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="SURTEX_SA" Class="DataClasses1DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=KEVIN;Initial Catalog=SURTEX_SA;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="SURTEX_SAConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.tbl_cargo" Member="tbl_cargo">
+    <Type Name="tbl_cargo">
+      <Column Name="car_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="car_nombre" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="car_descripcion" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="car_estado" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="dep_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="tbl_departamento_tbl_cargo" Member="tbl_departamento" ThisKey="dep_id" OtherKey="dep_id" Type="tbl_departamento" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_departamento" Member="tbl_departamento">
+    <Type Name="tbl_departamento">
+      <Column Name="dep_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="dep_nombre" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="dep_nombre_jefe" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="dep_apellido_jefe" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="dep_descripcion" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="dep_estado" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="emp_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="tbl_departamento_tbl_cargo" Member="tbl_cargo" ThisKey="dep_id" OtherKey="dep_id" Type="tbl_cargo" />
+      <Association Name="tbl_empresa_tbl_departamento" Member="tbl_empresa" ThisKey="emp_id" OtherKey="emp_id" Type="tbl_empresa" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_empresa" Member="tbl_empresa">
+    <Type Name="tbl_empresa">
+      <Column Name="emp_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="emp_ruc" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="emp_representante_legal" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="emp_nombre" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="emp_direccion" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="emp_telefono" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="emp_estado" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Association Name="tbl_empresa_tbl_departamento" Member="tbl_departamento" ThisKey="emp_id" OtherKey="emp_id" Type="tbl_departamento" />
+    </Type>
+  </Table>
+  <Function Name="dbo.eliminar_cargo" Method="eliminar_cargo">
+    <Parameter Name="car_id" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.guardar_cargo" Method="guardar_cargo">
+    <Parameter Name="car_nombre" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="car_descripcion" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="dep_id" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.modificar_cargo" Method="modificar_cargo">
+    <Parameter Name="car_nombre" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="car_descripcion" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="dep_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="car_id" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.mostrar_cargo" Method="mostrar_cargo">
+    <ElementType Name="mostrar_cargoResult">
+      <Column Name="car_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="car_nombre" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="car_descripcion" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="car_estado" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="dep_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="dep_nombre" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+</Database>

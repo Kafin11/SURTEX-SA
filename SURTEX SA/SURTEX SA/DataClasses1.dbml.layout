@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="DataClasses1">
+  <DataContextMoniker Name="/DataClasses1DataContext" />
+  <nestedChildShapes>
+    <classShape Id="17843f13-783f-4a62-98c3-b6edee2fc9c9" absoluteBounds="6.25, 1.125, 2, 1.7708968098958329">
+      <DataClassMoniker Name="/DataClasses1DataContext/tbl_cargo" />
+      <nestedChildShapes>
+        <elementListCompartment Id="68908906-a22f-41dd-8e83-348ffecea08a" absoluteBounds="6.265, 1.585, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="d3e6ddbd-5a23-4880-99ee-d3f35a423a17" absoluteBounds="3.5, 0.875, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/DataClasses1DataContext/tbl_departamento" />
+      <nestedChildShapes>
+        <elementListCompartment Id="8640852e-921d-4d29-a7ea-8a30f3562cca" absoluteBounds="3.515, 1.335, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="e68db4e8-711e-45a3-942c-a2498fa02f10" absoluteBounds="0.75, 0.875, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/DataClasses1DataContext/tbl_empresa" />
+      <nestedChildShapes>
+        <elementListCompartment Id="55e0978d-9998-4d94-b7bf-55f39e1ab70b" absoluteBounds="0.765, 1.335, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(5.5 : 2.01044840494792); (6.25 : 2.01044840494792)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DataClasses1DataContext/tbl_departamento/tbl_departamento_tbl_cargo" />
+      <nodes>
+        <classShapeMoniker Id="d3e6ddbd-5a23-4880-99ee-d3f35a423a17" />
+        <classShapeMoniker Id="17843f13-783f-4a62-98c3-b6edee2fc9c9" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 1.95274983723958); (3.5 : 1.95274983723958)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DataClasses1DataContext/tbl_empresa/tbl_empresa_tbl_departamento" />
+      <nodes>
+        <classShapeMoniker Id="e68db4e8-711e-45a3-942c-a2498fa02f10" />
+        <classShapeMoniker Id="d3e6ddbd-5a23-4880-99ee-d3f35a423a17" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>
